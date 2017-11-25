@@ -1,0 +1,5 @@
+ediya/dependency-reduced-pom.xml
+ediya/target/*
+ediya/.idea/*
+.idea/*
+
