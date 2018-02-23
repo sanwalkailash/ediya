@@ -86,10 +86,10 @@ logging:
      io.dropwizard: INFO
    appenders:
        - type: file
-         currentLogFilename: /home/kailash/office/personal/logs/api-services.log
+         currentLogFilename: /root/kailash/ediya/ediya/ediya-api.log
          threshold: ALL
          archive: false
-         archivedLogFilenamePattern: /home/kailash/office/personal/logs/api-services-archie-%d.log
+         archivedLogFilenamePattern: /root/kailash/ediya/ediya/api-ediya-archie-%d.log
          archivedFileCount: 5
          timeZone: UTC
          logFormat: # TODO
