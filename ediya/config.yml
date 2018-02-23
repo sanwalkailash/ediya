@@ -73,11 +73,12 @@ server:
    applicationConnectors:
     - type: http
       port: 5551
-      bindHost: 127.0.0.1 # only bind to loopback
+#      bindHost: 127.0.0.1 # only bind to loopback
+      bindHost: 172.30.0.215 # only bind to loopback
    adminConnectors:
     - type: http
       port: 5552
-      bindHost: 127.0.0.1 # only bind to loopback
+      bindHost: 172.30.0.215  # only bind to loopback
 
 # Logging settings.
 logging:
@@ -85,7 +86,14 @@ logging:
    loggers:
      io.dropwizard: INFO
    appenders:
-     - type: console
+       - type: file
+         currentLogFilename: /root/kailash/ediya/ediya/api-services.log
+         threshold: ALL
+         archive: false
+         archivedLogFilenamePattern: /var/log/api-services-%d.log
+         archivedFileCount: 5
+         timeZone: UTC
+         logFormat: # TODO
 
 
 http-client:
