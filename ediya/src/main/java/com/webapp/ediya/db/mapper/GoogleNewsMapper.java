@@ -15,13 +15,13 @@ public class GoogleNewsMapper implements ResultSetMapper<GoogleNews> {
         GoogleNews googleNews = new GoogleNews();
         googleNews.setId(rs.getLong("id"));
         googleNews.setTitle(rs.getString("title"));
-        googleNews.setTimezone("timezone");
-        googleNews.setHyperlink("hyperlink");
-        googleNews.setCategory("category");
-        googleNews.setPubDate("pubDate");
-        googleNews.setCreatedAt("createdAt");
-        googleNews.setDescription("description");
-        googleNews.setGuid("guid");
+        googleNews.setTimezone(rs.getString("timezone"));
+        googleNews.setHyperlink(rs.getString("hyperlink"));
+        googleNews.setCategory(rs.getString("category"));
+        googleNews.setPubDate(rs.getString("pubDate"));
+        googleNews.setCreatedAt(rs.getString("createdAt"));
+        googleNews.setDescription(rs.getString("description"));
+        googleNews.setGuid(rs.getString("guid"));
 
         return googleNews;
     }
