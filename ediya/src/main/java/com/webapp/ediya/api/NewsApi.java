@@ -24,7 +24,7 @@ public class NewsApi {
         this.logger = logger;
     }
 
-    public RestApiResponse getDailyNewsApi(String date){
+    public RestApiResponse getDailyNewsApi(Date date){
         RestApiResponse restApiResponse = new RestApiResponse();
         try {
             // fech news by day --

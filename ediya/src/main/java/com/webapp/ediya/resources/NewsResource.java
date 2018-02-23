@@ -30,14 +30,14 @@ public class NewsResource {
         Date parsedDate;
         try {
             logger.info("@getDailyNews request params key["+key+"] date["+date+"] main key is "+AppConstants.NEWS_API_KEY.toLowerCase());
-//            if(key.equalsIgnoreCase(AppConstants.NEWS_API_KEY)){
-//                restApiResponse.setStatus(AppConstants.API_FAILURE);
-//                restApiResponse.setEcode(AppConstants.API_ERROR_INVALID_API_KEY);
-//                return restApiResponse;
-//            }
+            if(!key.equalsIgnoreCase(AppConstants.NEWS_API_KEY)){
+                restApiResponse.setStatus(AppConstants.API_FAILURE);
+                restApiResponse.setEcode(AppConstants.API_ERROR_INVALID_API_KEY);
+                return restApiResponse;
+            }
             try {
                 parsedDate = dateFormat.parse(date+" 00:00:00");
-                restApiResponse = newsApi.getDailyNewsApi(parsedDate.toString());
+                restApiResponse = newsApi.getDailyNewsApi(parsedDate);
 
             } catch (ParseException e) {
                 restApiResponse.setStatus(AppConstants.API_FAILURE);
