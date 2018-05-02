@@ -1,14 +1,8 @@
 package com.webapp.ediya.api;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.QueryParam;
-import javax.ws.rs.core.MediaType;
-
 import com.webapp.ediya.core.AppConstants;
 import com.webapp.ediya.core.RestApiResponse;
-import com.webapp.ediya.db.dao.NewsDao;
+import com.webapp.ediya.db.dao.ediyalabs.NewsDao;
 import com.webapp.ediya.db.entity.GoogleNews;
 import org.apache.log4j.Logger;
 

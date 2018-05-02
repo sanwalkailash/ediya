@@ -1,4 +1,4 @@
-package com.webapp.ediya.db.dao;
+package com.webapp.ediya.db.dao.ediyalabs;
 
 import com.webapp.ediya.db.entity.GoogleNews;
 import com.webapp.ediya.db.mapper.GoogleNewsMapper;

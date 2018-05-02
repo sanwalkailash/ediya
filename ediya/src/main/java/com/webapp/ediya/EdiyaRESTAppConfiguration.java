@@ -9,6 +9,7 @@ import org.hibernate.validator.constraints.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.*;
+
 import io.dropwizard.db.DataSourceFactory;
 
 public class EdiyaRESTAppConfiguration extends Configuration {
@@ -33,8 +34,22 @@ public class EdiyaRESTAppConfiguration extends Configuration {
 
     @Valid
     @NotNull
+    private DataSourceFactory dealmanDatabase = new DataSourceFactory();
+
+    @Valid
+    @NotNull
     private HttpClientConfiguration httpClientConfig;
 
+
+    @JsonProperty("dealman-database")
+    public DataSourceFactory getDealmanDatabase() {
+        return dealmanDatabase;
+    }
+
+    @JsonProperty("dealman-database")
+    public void setDealmanDatabase(DataSourceFactory dealmanDatabase) {
+        this.dealmanDatabase = dealmanDatabase;
+    }
 
     @JsonProperty("database")
     public DataSourceFactory getDataSourceFactory() {
@@ -57,13 +72,13 @@ public class EdiyaRESTAppConfiguration extends Configuration {
     }
 
     @JsonProperty("app")
-    public AppConfigurations getAppConfigurations(){
+    public AppConfigurations getAppConfigurations() {
         return this.appConfigurations;
     }
 
     @JsonProperty("app")
-    public void setAppConfigurations(AppConfigurations appConfigurations){
-        this.appConfigurations=appConfigurations;
+    public void setAppConfigurations(AppConfigurations appConfigurations) {
+        this.appConfigurations = appConfigurations;
     }
 
     @JsonProperty("http-client")

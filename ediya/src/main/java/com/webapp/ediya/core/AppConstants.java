@@ -13,9 +13,11 @@ public class AppConstants {
     //app names
     public static final String MAIN_APP_NAME="EDIYA LABS";
     public static final String NEWS_APP_NAME="ULLESY";
+    public static final String DEALMAN_APP_NAME="DEALMAN";
 
     // api keys--
     public static final String NEWS_API_KEY = NEWS_APP_NAME+"@2018";
+    public static final String DEALMAN_APP_KEY = DEALMAN_APP_NAME+"@2018";
 
     //api status codes--
     public static final int API_ERROR_BASE = 200;

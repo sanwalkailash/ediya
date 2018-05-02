@@ -1,4 +1,4 @@
-package com.webapp.ediya.db.dao;
+package com.webapp.ediya.db.dao.ediyalabs;
 
 import com.webapp.ediya.db.mapper.User;
 import org.skife.jdbi.v2.sqlobject.Bind;

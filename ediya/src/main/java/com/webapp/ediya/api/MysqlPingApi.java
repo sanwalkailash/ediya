@@ -5,7 +5,7 @@ import java.util.Map;
 
 import com.webapp.ediya.core.AppConstants;
 import com.webapp.ediya.core.RestApiResponse;
-import com.webapp.ediya.db.dao.MysqlPingDao;
+import com.webapp.ediya.db.dao.ediyalabs.MysqlPingDao;
 public class MysqlPingApi {
 	
 	private MysqlPingDao mysqlPingDao;

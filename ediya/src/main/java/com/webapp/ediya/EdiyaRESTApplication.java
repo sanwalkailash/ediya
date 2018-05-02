@@ -4,8 +4,8 @@ import com.webapp.ediya.api.MysqlPingApi;
 import com.webapp.ediya.api.NewsApi;
 import com.webapp.ediya.core.AppConstants;
 import com.webapp.ediya.core.DaoMapper;
-import com.webapp.ediya.db.dao.MysqlPingDao;
-import com.webapp.ediya.db.dao.NewsDao;
+import com.webapp.ediya.db.dao.ediyalabs.MysqlPingDao;
+import com.webapp.ediya.db.dao.ediyalabs.NewsDao;
 import com.webapp.ediya.resources.AppResource;
 import com.webapp.ediya.resources.HelloResource;
 import com.webapp.ediya.resources.NewsResource;
@@ -45,18 +45,21 @@ public class EdiyaRESTApplication extends Application<EdiyaRESTAppConfiguration>
         // TODO: implement application
         String[] apps = new String[] {
                 AppConstants.MAIN_APP_NAME,
-                AppConstants.NEWS_APP_NAME
+                AppConstants.NEWS_APP_NAME,
+                AppConstants.DEALMAN_APP_NAME
         };
 
         final DBIFactory factory = new DBIFactory();
         final DBI jdbi = factory.build(environment, configuration.getDataSourceFactory(), "mysql"); // gettng configs for database of yml
         final DBI ullesyJdbi = factory.build(environment, configuration.getUllesyDatabase(), "mysql-ullesy"); // gettng configs for database of yml
+        final DBI dealmanJdbi = factory.build(environment, configuration.getDealmanDatabase(), "mysql-dealman"); // gettng configs for database of yml
 
         jdbi.setSQLLog(new Log4JLog(LOGGER, Level.TRACE));
 
         final DaoMapper daoMapper = new DaoMapper();
         daoMapper.addJdbiInstance(AppConstants.MAIN_APP_NAME, jdbi);
         daoMapper.addJdbiInstance(AppConstants.NEWS_APP_NAME, ullesyJdbi);
+        daoMapper.addJdbiInstance(AppConstants.DEALMAN_APP_NAME, dealmanJdbi);
 
         for(String app:apps){
             daoMapper.addDaoInstance(app, MysqlPingDao.class);
