@@ -1,12 +1,15 @@
 package com.webapp.ediya;
 
-import com.webapp.ediya.api.MysqlPingApi;
-import com.webapp.ediya.api.NewsApi;
+import com.webapp.ediya.api.dealman.DealmanAccountApi;
+import com.webapp.ediya.api.ediyalabs.MysqlPingApi;
+import com.webapp.ediya.api.ullesy.NewsApi;
 import com.webapp.ediya.core.AppConstants;
 import com.webapp.ediya.core.DaoMapper;
+import com.webapp.ediya.db.dao.dealman.DealmanAccountDao;
 import com.webapp.ediya.db.dao.ediyalabs.MysqlPingDao;
-import com.webapp.ediya.db.dao.ediyalabs.NewsDao;
+import com.webapp.ediya.db.dao.ullesy.NewsDao;
 import com.webapp.ediya.resources.AppResource;
+import com.webapp.ediya.resources.DealmanResource;
 import com.webapp.ediya.resources.HelloResource;
 import com.webapp.ediya.resources.NewsResource;
 import io.dropwizard.Application;
@@ -55,6 +58,8 @@ public class EdiyaRESTApplication extends Application<EdiyaRESTAppConfiguration>
         final DBI dealmanJdbi = factory.build(environment, configuration.getDealmanDatabase(), "mysql-dealman"); // gettng configs for database of yml
 
         jdbi.setSQLLog(new Log4JLog(LOGGER, Level.TRACE));
+//        ullesyJdbi.setSQLLog(new Log4JLog(LOGGER, Level.TRACE));
+//        dealmanJdbi.setSQLLog(new Log4JLog(LOGGER, Level.TRACE));
 
         final DaoMapper daoMapper = new DaoMapper();
         daoMapper.addJdbiInstance(AppConstants.MAIN_APP_NAME, jdbi);
@@ -68,17 +73,23 @@ public class EdiyaRESTApplication extends Application<EdiyaRESTAppConfiguration>
         final HttpClient httpClient = new HttpClientBuilder(environment).using(configuration.getHttpClientConfiguration()).using(new LaxRedirectStrategy()).build("");
 
         // dao initialization --
+        //ediyalabs
         final MysqlPingDao mysqlPingDao = jdbi.onDemand(MysqlPingDao.class);
-        final NewsDao newsDao = jdbi.onDemand(NewsDao.class);
+        //ullesy
+        final NewsDao newsDao = ullesyJdbi.onDemand(NewsDao.class);
+        //dealman
+        final DealmanAccountDao dealmanAccountDao = dealmanJdbi.onDemand(DealmanAccountDao.class);
 
         //api declarations ---
         final MysqlPingApi mysqlPingApi = new MysqlPingApi(mysqlPingDao);
         final NewsApi newsApi = new NewsApi(newsDao,LOGGER);
+        final DealmanAccountApi dealmanAccountApi = new DealmanAccountApi(dealmanAccountDao,LOGGER);
 
         // resource declaration --
         final AppResource appResource = new AppResource(mysqlPingApi,LOGGER);
         final  HelloResource helloResource = new HelloResource();
         final NewsResource newsResource = new NewsResource(newsApi,LOGGER);
+        final DealmanResource dealmanResource = new DealmanResource(dealmanAccountApi,LOGGER);
 
         // register resources --
         /*environment.jersey().register(new OAuthCredentialAuthFilter.Builder<AuthSession>()
@@ -89,6 +100,7 @@ public class EdiyaRESTApplication extends Application<EdiyaRESTAppConfiguration>
         environment.jersey().register(appResource);
         environment.jersey().register(helloResource);
         environment.jersey().register(newsResource);
+        environment.jersey().register(dealmanResource);
     }
 
 }

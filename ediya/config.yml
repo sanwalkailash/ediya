@@ -92,10 +92,10 @@ dealman-database:
   minIdleTime: 1 minute
 
 app:
-  appName: ullesy
+  appName: ediyalabs
   apiServerUrl : http://localhost:5551
   sessionTimeoutInSec : 3600
-  apiSecretKey: ullesy@12#
+  apiSecretKey: ediyalabs@12#
 
 
 server:

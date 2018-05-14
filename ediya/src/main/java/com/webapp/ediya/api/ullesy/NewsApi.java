@@ -1,8 +1,8 @@
-package com.webapp.ediya.api;
+package com.webapp.ediya.api.ullesy;
 
 import com.webapp.ediya.core.AppConstants;
 import com.webapp.ediya.core.RestApiResponse;
-import com.webapp.ediya.db.dao.ediyalabs.NewsDao;
+import com.webapp.ediya.db.dao.ullesy.NewsDao;
 import com.webapp.ediya.db.entity.GoogleNews;
 import org.apache.log4j.Logger;
 

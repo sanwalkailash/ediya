@@ -1,6 +1,6 @@
 package com.webapp.ediya.resources;
 
-import com.webapp.ediya.api.NewsApi;
+import com.webapp.ediya.api.ullesy.NewsApi;
 import com.webapp.ediya.core.AppConstants;
 import com.webapp.ediya.core.RestApiResponse;
 import org.apache.log4j.Logger;

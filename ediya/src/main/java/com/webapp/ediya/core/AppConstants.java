@@ -26,9 +26,10 @@ public class AppConstants {
     public static final int API_ERROR_INVALID_USER_PERSONID = API_ERROR_BASE + 1;
     public static final int API_ERROR_INCORRECT_DATE_FORMAT = API_ERROR_BASE + 2;
     public static final int API_ERROR_INVALID_API_KEY = API_ERROR_BASE + 3;
+    public static final int API_ERROR_INVALID_INPUT = API_ERROR_BASE + 4;
 
     //set max status code here --
-    public static final int API_ERROR_MAX = API_ERROR_INVALID_API_KEY;
+    public static final int API_ERROR_MAX = API_ERROR_INVALID_INPUT;
 
     //set status array length --
     public static final String API_ERROR_DESCRIPTION[] = new String[API_ERROR_MAX+1];
@@ -38,5 +39,6 @@ public class AppConstants {
         AppConstants.API_ERROR_DESCRIPTION[API_ERROR_INVALID_USER_PERSONID] = "Invalid User id";
         AppConstants.API_ERROR_DESCRIPTION[API_ERROR_INCORRECT_DATE_FORMAT] = "Date Format is not correct. Required :: yyyyMMdd";
         AppConstants.API_ERROR_DESCRIPTION[API_ERROR_INVALID_API_KEY] = "Invalid API key";
+        AppConstants.API_ERROR_DESCRIPTION[API_ERROR_INVALID_INPUT] = "Invalid Input";
     }
 }

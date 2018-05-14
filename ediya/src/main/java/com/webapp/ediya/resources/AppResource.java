@@ -1,6 +1,6 @@
 package com.webapp.ediya.resources;
 
-import com.webapp.ediya.api.MysqlPingApi;
+import com.webapp.ediya.api.ediyalabs.MysqlPingApi;
 import com.webapp.ediya.core.AppConstants;
 import com.webapp.ediya.core.RestApiResponse;
 

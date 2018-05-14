@@ -1,4 +1,4 @@
-package com.webapp.ediya.api;
+package com.webapp.ediya.api.ediyalabs;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,7 +18,6 @@ public class MysqlPingApi {
 	/**
 	 * This API is used to ping mysql server
 	 * 
-	 * @param personid
 	 * @return
 	 */
 	public RestApiResponse ping(int personId) {
